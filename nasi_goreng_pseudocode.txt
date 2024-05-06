@@ -1,0 +1,56 @@
+PROGRAM OtomasiMemasakNasiGorengDadakan
+BEGIN
+	// Deklarasi variabel
+	DECLARE penggorengan
+	DECLARE penggorengan_isi_minyak
+	DECLARE nasi
+	DECLARE minyak
+	DECLARE minyak_panas AS BOOLEAN
+	DECLARE bumbu
+	DECLARE telur
+	DECLARE sayur
+	DECLARE sendok
+	DECLARE potongan_daging_ayam
+	DECLARE daun_bawang_potong
+	DECLARE nasi_goreng AS BOOLEAN
+	
+	// Mengisi penggorengan dengan minyak dan memanaskannya
+	FILL penggorengan WITH minyak
+	HEAT penggorengan_isi_minyak UNTIL panas
+
+	// Memeriksa apakah minyak sudah panas
+	IF penggorengan_isi_minyak IS panas
+		minyak_panas = TRUE
+	ELSE
+		minyak_panas = FALSE
+
+	// Jika minyak sudah panas, masak Nasi Goreng Dadakan
+	IF minyak_panas EQUALS TRUE
+		PRINT "Minyak sudah panas, masukkan potongan daging ayam ke dalam penggorengan"
+		ADD potongan_daging_ayam TO penggorengan
+
+		IF potongan_daging_ayam IS matang
+			PRINT "Daging ayam sudah matang, tambahkan nasi, bumbu, telur, dan sayur ke dalam penggorengan"
+			ADD nasi TO penggorengan
+			ADD bumbu TO penggorengan
+			ADD telur TO penggorengan
+			ADD sayur TO penggorengan
+
+			PRINT "Memasak Nasi Goreng Dadakan..."
+			FRY nasi_goreng WITH Time 5 Menit
+
+			PRINT "Nasi Goreng Dadakan sudah matang, sajikan ke piring"
+			GET nasi_goreng FROM penggorengan
+			PLACE nasi_goreng ON piring
+			PLACE sendok ON piring
+			PLACE garpu ON piring
+			USE sendok WITH garpu TO eat
+			PRINT "Nasi Goreng Dadakan sudah siap disajikan"
+		ELSE
+			PRINT "Daging ayam belum matang, tunggu sampai daging ayam matang"
+	ENDIF
+ELSE
+		// Jika minyak belum panas, tunggu
+		PRINT "Minyak belum panas, tunggu sampai minyak sudah panas"
+ENDIF
+END
