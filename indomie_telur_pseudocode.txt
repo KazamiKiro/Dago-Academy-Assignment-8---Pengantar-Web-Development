@@ -1,0 +1,43 @@
+program otomasi memasak Indomie Telur
+
+begin // memulai program
+
+	// melakukan deklarasi variabel
+	// INPUT
+	declare panci
+	declare panci_isi_air
+	declare air
+	declare indomie
+	declare telur
+	declare mangkok
+	declare sendok
+	declare garpu
+	declare panci
+	declare air_mendidih as boolean
+	declare kompor as boolean
+	
+	// algoritma untuk mengisi air ke dalam panci dan memanaskan nya
+	fill panci with air
+	heat panci_isi_air until mendidih
+
+	// kondisi memanaskan air
+	if panci_isi_air is mendidih
+		air_mendidih = True
+	else
+		air_mendidih = False
+	if air mendidih equals true
+		// Jika kondisi air_mendidih terpenuhi
+		print "Air sudah mendidih, tambahkan mie kedalam panci"
+		add indomie to panci
+		add telur to panci
+		boil indomie and telur with Time 8 Menit
+		get indomie from panci
+		place indomie to piring
+		place sendok to piring
+		place garpu to piring
+		use sendok with garpu to eat
+		print "Indomie sudah siap disajikan
+	else	
+		// Jika kondisi air_mendidih belum terpenuhi
+		print "Air belum matang, tunggu sampai mendidih"
+END
